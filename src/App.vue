@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <chat-room></chat-room>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import { mapActions } from 'vuex';
+import ChatRoom from './views/ChatRoom.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    ChatRoom,
+  },
+  methods: {
+    ...mapActions(['setUserDetails', 'setConversationDetails']),
+    initializeApplication() {
+      this.setUserDetails();
+      this.setConversationDetails();
+    },
+  },
+  beforeMount() {
+    this.initializeApplication();
   },
 };
 </script>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: #D9DCE9;
+  height: calc(100vh - 20px);
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 </style>
