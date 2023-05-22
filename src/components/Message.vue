@@ -1,5 +1,6 @@
+<!-- eslint-disable max-len -->
 <template>
-  <div class="message-wrapper" :class="{'is-right-aligned' : user.id === message.from.id}">
+  <div class="message-wrapper" :class="{'is-right-aligned' : user.id === message.from.id}" :id="`message-${message.id}`">
     <div class="thumbnail">
       <img :src="message.from.thumbnail" alt="thumbnail">
     </div>

@@ -1,22 +1,22 @@
 <template>
   <div class="conversation-area">
     <template v-for="message in messages">
-      <message :key="message.id" :message="message"></message>
+      <message-component :key="message.id" :message="message"></message-component>
     </template>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import Message from './Message.vue';
+import MessageComponent from './Message.vue';
 
 export default {
   name: 'ConversationArea',
   components: {
-    Message,
+    MessageComponent,
   },
   computed: {
-    ...mapState(['user', 'messages']),
+    ...mapState(['messages']),
   },
 };
 </script>
@@ -29,5 +29,6 @@ export default {
   position: relative;
   flex-direction: column;
   justify-content: space-between;
+  overflow: auto;
 }
 </style>

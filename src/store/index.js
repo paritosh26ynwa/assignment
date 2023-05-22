@@ -33,6 +33,9 @@ export default new Vuex.Store({
     SET_CONVERSATION(state, payload) {
       state.messages = payload;
     },
+    ADD_MESSAGE(state, payload) {
+      state.messages.push(payload);
+    },
   },
   actions: {
     async setUserDetails({ commit }) {
@@ -52,6 +55,9 @@ export default new Vuex.Store({
         // eslint-disable-next-line no-console
         console.error(error);
       }
+    },
+    addMessage(context, payload) {
+      context.commit('ADD_MESSAGE', payload);
     },
   },
 });
