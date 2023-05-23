@@ -1,6 +1,6 @@
 <!-- eslint-disable max-len -->
 <template>
-  <div class="message-wrapper" :class="{'is-right-aligned' : user.id === message.from.id}" :id="`message-${message.id}`">
+  <div class="message-wrapper" :class="{'is-right-aligned' : user.id === message.from.id}">
     <div class="thumbnail">
       <img :src="message.from.thumbnail" alt="thumbnail">
     </div>
@@ -29,12 +29,13 @@ export default {
 
 <style lang="scss" scoped>
 .message-wrapper {
-  max-width: 60%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   flex-direction: row;
   float: left;
   .message {
+    width: calc(60% - 48px);
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.2px;
@@ -53,6 +54,7 @@ export default {
     height: 48px;
     border-radius: 50%;
     margin: 0 12px;
+    background-color: #4F546E;
     img {
       max-width: 48px;
       border-radius: 50%;

@@ -1,5 +1,5 @@
 <template>
-  <div class="conversation-area">
+  <div class="conversation-area" id="conversation-area">
     <template v-for="message in messages">
       <message-component :key="message.id" :message="message"></message-component>
     </template>
@@ -25,10 +25,10 @@ export default {
 .conversation-area {
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
   position: relative;
-  flex-direction: column;
-  justify-content: space-between;
   overflow: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 </style>

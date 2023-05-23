@@ -46,6 +46,9 @@ export default {
             console.error(error);
           } finally {
             this.message = '';
+            setTimeout(() => {
+              this.scrollToBottom();
+            }, 50);
           }
         }
       },
@@ -54,6 +57,10 @@ export default {
   methods: {
     sendReply(newMessage) {
       this.message = newMessage;
+    },
+    scrollToBottom() {
+      const wrapper = document.getElementById('conversation-area');
+      wrapper.scrollTop = wrapper.scrollHeight;
     },
   },
 };
